@@ -3,10 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "odeum-ui": "^0.1.24",
     "polished": "^1.8.1",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-scripts": "1.0.16",
+    "redux": "^3.7.2",
     "styled-components": "^2.2.3"
   },
   "scripts": {

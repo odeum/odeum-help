@@ -1,13 +1,28 @@
 import React, { Component } from 'react'
-import Help from './components/Help'
+import HelpModal from './components/HelpModal'
+import Workspace from './components/Workspace'
+import HelpState from './components/HelpState'
 
 
 class App extends Component {
+
+	state = {
+		helpId: null
+	}
+
+	getHelpId = (helpId) => {
+		this.setState({ helpId: helpId })
+	}
+
 	render() {
 		return (
 			<div>
-				<p>To get started, edit <code>src/App.js</code> and save to reload.</p>
-				<Help />
+				{/* A workspace component rendered by a "Tab" */} 
+				<Workspace />
+				{/* Help component composed in "Footer" */}
+				<HelpState set={false} getHelpId={this.getHelpId} />
+				<HelpModal />
+				{console.log(this.state.helpId)}
 			</div>
 		)
 	}
