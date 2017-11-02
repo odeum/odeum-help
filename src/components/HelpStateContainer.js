@@ -1,7 +1,23 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-// HelpStateContainer 
+class WorkspaceComponent extends Component {
+
+	registerHelpId = () => {
+		this.props.helpId('0307c917-ca92-4e3d-80e5-dc70fdcc81ee')
+	}
+
+	render() {
+		this.registerHelpId()
+		return (
+			<div>
+				
+			</div>
+		)
+	}
+}
+
+// HelpStateContainer (top state manager = App)
 class HelpStateContainer extends Component {
 	constructor(props) {
 		super(props)
@@ -11,11 +27,14 @@ class HelpStateContainer extends Component {
 		}
 	}
 
+	propagateHelpId = (helpId) => {
+		this.setState({ helpId: this.props.helpId })
+	}
+
 	render() {
-		const { x } = this.props
 		return (
 			<div>
-				{x}
+				<WorkspaceComponent helpId={this.propagateHelpId} />
 			</div>
 
 		)

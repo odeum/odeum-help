@@ -1,28 +1,27 @@
 import React, { Component } from 'react'
-import HelpModal from './components/HelpModal'
-import Workspace from './components/Workspace'
-import HelpState from './components/HelpState'
-
+import WorkspaceComponent, { FunctionalComponent } from 'components/Workspace'
 
 class App extends Component {
+	constructor(props) {
+		super(props)
 
-	state = {
-		helpId: null
+		this.state = {
+			helpId: ''
+		}
 	}
 
-	getHelpId = (helpId) => {
-		this.setState({ helpId: helpId })
+	propagateHelpId = (id) => {
+		console.log('Propagating ... ')
+		this.setState({ helpId: id })
 	}
 
+		
 	render() {
 		return (
 			<div>
-				{/* A workspace component rendered by a "Tab" */} 
-				<Workspace />
-				{/* Help component composed in "Footer" */}
-				<HelpState set={false} getHelpId={this.getHelpId} />
-				<HelpModal />
-				{console.log(this.state.helpId)}
+				{this.state.helpId}
+				<WorkspaceComponent helpId={this.propagateHelpId} />
+				<FunctionalComponent helpId={this.propagateHelpId} />
 			</div>
 		)
 	}
