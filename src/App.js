@@ -18,13 +18,21 @@ class App extends Component {
 		}
 	}
 
-		
+	renderWorkspaceMethod = () => {
+		// this.propagateHelpId('4')
+		return (
+			<div>
+				<p>Registering help for this class method component ...</p>
+			</div>
+		)
+	}
 	render() {
 		return (
 			<div>				
 				<WorkspaceComponent1 helpId={this.propagateHelpId} /> 
 				<WorkspaceComponent2 helpId={this.propagateHelpId} /> 
 				<FunctionalComponent helpId={this.propagateHelpId} />
+				{renderWorkspaceFunction()}
 				<p>Current help id: {this.state.helpId}</p>
 			</div>
 		)
@@ -32,3 +40,12 @@ class App extends Component {
 }
 
 export default App
+
+const renderWorkspaceFunction = () => {
+	this.propagateHelpId('4')
+	return (
+		<div>
+			<p>Registering help for this functional component ...</p>
+		</div>
+	)
+}
