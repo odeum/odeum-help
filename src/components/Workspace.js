@@ -1,39 +1,52 @@
 import React, { Component } from 'react'
 
-export const FunctionalComponent = (props) => {
-	props.helpId('0231f822-cb05-80e5-4e3d-1f4c0307c917')
-	return (
-		<div>
-			<p>Registering help for this component: 0231f822-... </p>
-		</div>
-	)
-}
-
-class WorkspaceComponent extends Component {
+export class WorkspaceComponent1 extends Component {
 	constructor(props) {
 		super(props)
 		
-		this.props.helpId('0307c917-ca92-4e3d-80e5-dc70fdcc81ee')
+		this.props.helpId('1')
 	}
 
 	render() {
 		return (
 			<div>
-				<p>Registering help for this component: 0307c917-... </p>
+				<p>Registering help for this class component ...</p>
 			</div>
 		)
 	}
 }
 
-export default WorkspaceComponent
+
+export class WorkspaceComponent2 extends Component {
+	constructor(props) {
+		super(props)
+
+		this.props.helpId('2')
+	}
+
+	render() {
+		return (
+			<div>
+				<p>Registering help for this class component ...</p>
+			</div>
+		)
+	}
+}
+
+export const FunctionalComponent = (props) => {
+	props.helpId('3')
+	return (
+		<div>
+			<p>Registering help for this functional component {'3'} ...</p>
+		</div>
+	)
+}
 
 /* 
-
 ** Alternative to using the constructor is using CDM lifecycle method:
 
 	componentDidMount() {
 		this.props.helpId('0307c917-ca92-4e3d-80e5-dc70fdcc81ee')
 	}
-
 */
 

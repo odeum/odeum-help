@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import WorkspaceComponent, { FunctionalComponent } from 'components/Workspace'
+import { WorkspaceComponent1, WorkspaceComponent2, FunctionalComponent } from 'components/Workspace'
 
 class App extends Component {
 	constructor(props) {
@@ -18,10 +18,11 @@ class App extends Component {
 		
 	render() {
 		return (
-			<div>
-				{this.state.helpId}
-				<WorkspaceComponent helpId={this.propagateHelpId} />
+			<div>				
+				<WorkspaceComponent1 helpId={this.propagateHelpId} /> 
+				<WorkspaceComponent2 helpId={this.propagateHelpId} /> 
 				<FunctionalComponent helpId={this.propagateHelpId} />
+				<p>Current help id: {this.state.helpId}</p>
 			</div>
 		)
 	}
