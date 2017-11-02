@@ -37,7 +37,7 @@ export const FunctionalComponent = (props) => {
 	props.helpId('3')
 	return (
 		<div>
-			<p>Registering help for this functional component {'3'} ...</p>
+			<p>Registering help for this functional component ...</p>
 		</div>
 	)
 }

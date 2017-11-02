@@ -6,13 +6,16 @@ class App extends Component {
 		super(props)
 
 		this.state = {
-			helpId: ''
+			helpId: null
 		}
 	}
 
+
 	propagateHelpId = (id) => {
-		console.log('Propagating ... ')
-		this.setState({ helpId: id })
+		if (this.state.helpId !== id) {
+			console.log('Propagating ... ', id)
+			this.setState({ helpId: id })
+		}
 	}
 
 		
