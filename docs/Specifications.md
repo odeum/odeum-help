@@ -27,9 +27,20 @@ Oplæg til API og datamodel for ODEUM Help Server:
 - help_id: number (uuid)
 - help_title: string (short)
 - help_description: string (long)
-- help_content: {
+- help_content: { 1-N relation ... 
 	- help_media: mediatype, string (url - image, video, svg, animation)
 	- help_link: string (link to external ressource, e.g. a support or tutorial website)
-	- help_attachments: (url - files)
+	- help_attachments: (url - files ... To be continued)
 }
 
+{
+	app_id: 1234,
+	help_id: 1234,
+	help_title: 'Dette er en hjælpe titel',
+	help_description: 'Lorem Ipsum Doler Sit Amet ...',
+		help_content: {[
+			{ image_url: '' },
+			{ image_url }
+		}]
+	}
+}
