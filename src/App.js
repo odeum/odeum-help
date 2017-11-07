@@ -9,7 +9,6 @@ import Footer from 'components/Footer/Footer'
 
 
 /* Demo */
-import ReactComp from 'demos/ReactComp'
 import { SimpleDiv } from 'demos/SimpleDiv'
 
 class App extends Component {
