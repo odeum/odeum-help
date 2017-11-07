@@ -33,68 +33,31 @@ class App extends Component {
 	render() {
 		return (
 			<AppContainer>
-				{/* 
-				Todo: Use default theme transparently and include theme prop in AppContainer that overwrites default theme
-				Todo: Remove all inline styles and use styled-components ...
-				*/}
 				<Header />
-
-
 				<MenuPanel>
-					{
-						/* No Tabs demos */
-					}
-					<Menu route='/' exact>
-						Home Demo <br />Last help ID: {this.state.helpID}
-					</Menu>
-
-					<Menu route='/home' label='Menu with no tabs' icon='home'>
-						No tabs workspace
-					</Menu>
-					{/* 
-						End Region
-					*/}
-
-					{ /* 
-						Workspace with Children and help id's 
-					*/}
-					<Menu icon={'people'} route='/children_menu' label={'Menu with children'} >
-						<Tab icon={'assignment'} label={'Overflow Test'} route={'/lorem_ipsum'} >
+					<Menu icon={'help'} route='/help' label={'ODEUM Help Server'} >
+						<Tab icon={'assignment'} label={'Getting help'} route={'/getting-help'} >
 							<Workspace helpID={1}>
-								<SimpleDiv />
+								<SimpleDiv/>
 							</Workspace>
 						</Tab>
 						<Tab icon={'assignment_turned_in'} label={'Subtab'} route={'/react-component'}>
-							<ReactComp />
+							<Workspace helpID={2}>
+								<SimpleDiv/>
+							</Workspace>
 						</Tab>
 						<Tab icon={'phone'} label={'Phone'} route={'/phone'} >
 							<Workspace helpID={3}>
-								{<iframe title={'phone'} width="560" height="315" src="https://www.youtube.com/embed/EVBsypHzF3U?start=170" frameBorder="0" allowFullScreen></iframe>}
+								<SimpleDiv />
 							</Workspace>
 						</Tab>
 					</Menu>
-					{/* 
-						End Region
-					*/}
-
-					{/* 
-						Workspace with props as workspace. 
-						Todo: If no route is transfered then create dummy route from lowercase label
-						Function to create route from label or defaultLabel 
-						Todo: Create defaultprops for Menu and Tab so they can be used without any props (label, icon, ...)
-					*/}
 					<Menu icon={'tab'} route='/menu2' label={'Menu with prop'}>
-						<Tab label={'React Component'} route={'/react-component'} workspace={ReactComp} />
-						<Tab label={'SimpleDiv'} icon={'phone'} route={'/simple-div'} workspace={SimpleDiv} />
-						<Tab label={'No help'} icon={'assignment'} route={'/no-help'} workspace={SimpleDiv} helpID={4} />
+						<Tab label={'No help'} route={'/no-help1'} workspace={SimpleDiv} />
+						<Tab label={'No help'} icon={'help'} route={'/no-help2'} workspace={SimpleDiv} />
+						<Tab label={'No help'} icon={'help_outline'} route={'/no-help3'} workspace={SimpleDiv} helpID={4} />
 					</Menu>
-					{/* 
-						End Region
-					*/}
 				</MenuPanel>
-				{/* Render FooterLabel + Link 
-				label={renderFooterLabel} labellink={handleLink} help={true}
-				*/}
 				<Footer helpId={this.state.helpID} />
 			</AppContainer>
 		)
