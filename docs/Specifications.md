@@ -1,56 +1,61 @@
-# ODEUM Help Server
+# ODEUM Help
 
 * Global Help Index for all connected apps
-* Should have own ticketing system (issue tracker)
+* Should long term have its own ticketing system (issue tracker)
 * Ability to integrate with Slack through ODEUM Slack Service
 
 
-## ODEUM Help Server:
-WebHouse har behov for en service (server) der kan integreres i ODEUM Code (Web App framework) og senere i ODEUM Code Native (Mobile App framework). 
-Denne server er en service der skal tilbyde inline hjælp og indhold til Web Apps der er tilknyttet denne service. En kontekst sensitiv hjælp der vises ved at aktivere "Hjælp" knappen i footer panelet i en ODEUM Code App. 
+## ODEUM Help
+ODEUM Code will require a help client and a help server. The help server service will be integrated through a client React Wrapper component in ODEUM Code (Web App framework) and later in ODEUM Code Native (Mobile App framework). 
 
-## Problemstilling:
-En Web App udviklet med ODEUM Code kan være en vilkår web app der er skrevet i React og anvender ODEUM Code App framework som platform for sine visuelle primitiver og forretningslogik. En ODEUM Code Web App er opbygget af en lang række React components (komponenter) og nogle af disse komponenter er workspace komponenter der skal kunne have tilknyttet et hjælpe-index (unikt ID) således at der kan hentes en hjælpetekst fra en central server med indhold der skal kunne vises i web app’en. Vedlagt er et visuelt eksempel på hvorledes dette grafisk kunne initieres. 
+The server is a service (API) that exhibits and offer inline help and content for ODEUM Code Web Apps connected to this service. A context sensitive help displayed through a pop-up overlay by activating the "Help" button in the lower right corner of the footer in an  ODEUM Code Web App. 
 
-Der skal udvikles og anvendes følgende teknologier for at løse problemet:
-* Et React wrapper component eller JavaScript function der kobler det visuelle workspace sammen med et index i en server. Dette komponent skal skrives i ReactJS (skal senere implementeres i Redux)
-* En server service der beskriver og udstiller et API for at få adgang til kontekst-sensitiv hjælp. Denne service skal skrives i NodeJS og kunne afvikles på en webserver med enten Express web server eller Apache. En mulighed for idriftsættelse og operation er WebHouse Amazon AWS miljø
-* En database der indeholder index over de web apps der er tilknyttet og et index over de hjælpe-indgange (entries) der er oprettet for den web app der skal bruge hjælp. Database kunne være MongoDB
-* En simpel form baseret web app der skal anvendes til at oprette hjælpe indholdet i databasen. Her oprettes det indhold der skal kunne vises som kontekst sensitiv hjælp i en web app bygget med ODEUM Code App framework. Denne web app bygges også i ODEUM Code App framework med React JavaScript. 
+## Problem
+A Web App developed with ODEUM Code can be any arbitrary web app written in React using the ODEUM Code App framework as a platform for its visual primities and business logic. An ODEUM Code Web App is composed of a number of React components, and some of these components are workspace components that needs context sensitive help connected. The component will wrap a unique ID from a database thus getting access to a specific help entry from a central help repository returning content to be visualized in the web app.
 
-## API:
-Oplæg til API og datamodel for ODEUM Help Server:
+#### Following technologies will be used to solve the problem:
 
-### Help Item dictionary (API for help entries):
+* A React wrapper component or JavaScript function that connects the visual workspace with an index in the server. This component will use native React state (Will be implemented in Redux later if needed)
+* A NodeJS server service that describes and exhibits an API and CRUD endpoints to access context sensitive help from a MongoDB database. This service is written in NodeJS and driven by either Express or Apache web server. 
+* A MongoDB database containing a localized index of web apps connected to the help and an index of the help entries created for the web app seeking help.
+* A simple form based ODEUM Code Web App applied to create help content in the database for a specific web app. 
+
+## API
 
 ```js
-- app_id: number (uuid for the app using the index/help dictionary)
-- help_id: number (uuid)
-- help_title: string (short)
-- help_description: string (long)
-- help_content: { 1-N relation ... 
-	- help_media: mediatype, string (url - image, video, svg, animation)
-	- help_link: string (link to external ressource, e.g. a support or tutorial website)
-	- help_attachments: (url - files ... To be continued)
+- locale: string (help content locale)
+	- app_id: number (uuid for the app using the index/help dictionary)
+	- help_id: number (uuid)
+	- help_title: string (short)
+	- help_description: string (long)
+	- help_content: { 1-N relation ... 
+		- help_media: mediatype, string (url - image, video, svg, animation)
+		- help_link: string (link to external ressource, e.g. a support or tutorial website)
+		- help_attachments: (url - files ...)
 }
 ```
 
-## Help item example
+## Help item JavaScript object example
 ```js
 {
 	app_id: 1,
 	help_id: 1234,
-	help_title: 'This is the title of the help entry',
-	help_description: 'This is the description of the help entry',
+	locale: 'en',
+	{
+		help_title: 'This is the title of the help entry',
+		help_description: 'This is the description of the help entry',
 		help_content: {[
-			{ type: 'text', title: '', description: ''},
-			{ type: 'image', title: '', description: '', url: ''},
-			{ type: 'image', title: '', description: '', url: ''},
-			{ type: 'video', title: '', description: '', url: ''},
-			{ type: 'link', title: '', description: '', url: ''},
-			{ type: 'svg', title: '', description: '', url: ''},
-			{ type: 'pdf', title: '', description: '', url: ''},
-			{ type: 'document', title: '', description: '', url: ''},
+			{ type: 'text', title: '', description: '', style: { ... }},
+			{ type: 'image', title: '', description: '', url: '', style: { ... }},
+			{ type: 'image', title: '', description: '', url: '', style: { ... }},
+			{ type: 'video', title: '', description: '', url: '', style: { ... }},
+			{ type: 'link', title: '', description: '', url: '', style: { ... }},
+			{ type: 'svg', title: '', description: '', url: '', style: { ... }},
+			{ type: 'pdf', title: '', description: '', url: '', style: { ... }},
+			{ type: 'document', title: '', description: '', url: '', style: { ... }},
 		]}
+	},
+	locale: 'da',
+	{ ... }
 }
 ```
