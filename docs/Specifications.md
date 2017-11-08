@@ -21,7 +21,7 @@ Der skal udvikles og anvendes følgende teknologier for at løse problemet:
 ## API:
 Oplæg til API og datamodel for ODEUM Help Server:
 
-### Help Item (entry):
+### Help Item dictionary (API for help entries):
 
 ```js
 - app_id: number (uuid for the app using the index/help dictionary)
@@ -33,19 +33,24 @@ Oplæg til API og datamodel for ODEUM Help Server:
 	- help_link: string (link to external ressource, e.g. a support or tutorial website)
 	- help_attachments: (url - files ... To be continued)
 }
+```
 
+## Help item example
+```js
 {
-	app_id: 1234,
+	app_id: 1,
 	help_id: 1234,
-	help_title: 'Dette er en hjælpe titel',
-	help_description: 'Lorem Ipsum Doler Sit Amet ...',
+	help_title: 'This is the title of the help entry',
+	help_description: 'This is the description of the help entry',
 		help_content: {[
-			{ type: '', title: '', description: '', url: ''}
-			{ type: 'image', image_url: ''},
-			{ type: 'image', image_url },
-			{ type: 'bla', text: 'Video af lady gaga'}
-			{ type: 'video', video_url: ''}
+			{ type: 'text', title: '', description: ''},
+			{ type: 'image', title: '', description: '', url: ''},
+			{ type: 'image', title: '', description: '', url: ''},
+			{ type: 'video', title: '', description: '', url: ''},
+			{ type: 'link', title: '', description: '', url: ''},
+			{ type: 'svg', title: '', description: '', url: ''},
+			{ type: 'pdf', title: '', description: '', url: ''},
+			{ type: 'document', title: '', description: '', url: ''},
 		]}
-	}
 }
 ```
