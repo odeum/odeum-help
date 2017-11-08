@@ -23,6 +23,7 @@ Oplæg til API og datamodel for ODEUM Help Server:
 
 ### Help Item (entry):
 
+```js
 - app_id: number (uuid for the app using the index/help dictionary)
 - help_id: number (uuid)
 - help_title: string (short)
@@ -39,8 +40,12 @@ Oplæg til API og datamodel for ODEUM Help Server:
 	help_title: 'Dette er en hjælpe titel',
 	help_description: 'Lorem Ipsum Doler Sit Amet ...',
 		help_content: {[
-			{ image_url: '' },
-			{ image_url }
-		}]
+			{ type: '', title: '', description: '', url: ''}
+			{ type: 'image', image_url: ''},
+			{ type: 'image', image_url },
+			{ type: 'bla', text: 'Video af lady gaga'}
+			{ type: 'video', video_url: ''}
+		]}
 	}
 }
+```
