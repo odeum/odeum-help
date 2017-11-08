@@ -39,8 +39,11 @@ Oplæg til API og datamodel for ODEUM Help Server:
 	help_title: 'Dette er en hjælpe titel',
 	help_description: 'Lorem Ipsum Doler Sit Amet ...',
 		help_content: {[
-			{ image_url: '' },
-			{ image_url }
-		}]
+			{ type: '', title: '', description: '', url: ''}
+			{ type: 'image', image_url: ''},
+			{ type: 'image', image_url },
+			{ type: 'bla', text: 'Video af lady gaga'}
+			{ type: 'video', video_url: ''}
+		]}
 	}
 }
