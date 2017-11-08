@@ -23,7 +23,7 @@ Oplæg til API og datamodel for ODEUM Help Server:
 
 ### Help Item (entry):
 
-```json
+```js
 - app_id: number (uuid for the app using the index/help dictionary)
 - help_id: number (uuid)
 - help_title: string (short)
