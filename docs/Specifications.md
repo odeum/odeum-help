@@ -37,25 +37,50 @@ A Web App developed with ODEUM Code can be any arbitrary web app written in Reac
 
 ## Help item JavaScript object example
 ```js
+
 {
-	app_id: 1,
-	help_id: 1234,
-	locale: 'en',
-	{
-		help_title: 'This is the title of the help entry',
-		help_description: 'This is the description of the help entry',
-		help_content: {[
-			{ type: 'text', title: '', description: '', style: { ... }},
-			{ type: 'image', title: '', description: '', url: '', style: { ... }},
-			{ type: 'image', title: '', description: '', url: '', style: { ... }},
-			{ type: 'video', title: '', description: '', url: '', style: { ... }},
-			{ type: 'link', title: '', description: '', url: '', style: { ... }},
-			{ type: 'svg', title: '', description: '', url: '', style: { ... }},
-			{ type: 'pdf', title: '', description: '', url: '', style: { ... }},
-			{ type: 'document', title: '', description: '', url: '', style: { ... }},
-		]}
+	'1234': {
+		app_id: 1,
+		help_id: 1234,
+		locale_content: {
+			'en': {
+				help_title: 'This is the title of the help entry',
+				help_description: 'This is the description of the help entry',
+				help_content: {[
+					{ type: 'text', title: '', description: '', style: { ... }},
+					{ type: 'image', title: '', description: '', url: '', style: { ... }},
+					{ type: 'image', title: '', description: '', url: '', style: { ... }},
+					{ type: 'video', title: '', description: '', url: '', style: { ... }},
+					{ type: 'link', title: '', description: '', url: '', style: { ... }},
+					{ type: 'svg', title: '', description: '', url: '', style: { ... }},
+					{ type: 'pdf', title: '', description: '', url: '', style: { ... }},
+					{ type: 'document', title: '', description: '', url: '', style: { ... }},
+				]}
+			},
+			'da': { ... }
+		}
 	},
-	locale: 'da',
-	{ ... }
+	'5678': {
+		app_id: 1,
+		help_id: 5678,
+		locale_content: {
+			'en': {
+				help_title: 'This is the title of the help entry',
+				help_description: 'This is the description of the help entry',
+				help_content: {[
+					{ type: 'text', title: '', description: '', style: { ... }},
+					{ type: 'image', title: '', description: '', url: '', style: { ... }},
+					{ type: 'image', title: '', description: '', url: '', style: { ... }},
+					{ type: 'video', title: '', description: '', url: '', style: { ... }},
+					{ type: 'link', title: '', description: '', url: '', style: { ... }},
+					{ type: 'svg', title: '', description: '', url: '', style: { ... }},
+					{ type: 'pdf', title: '', description: '', url: '', style: { ... }},
+					{ type: 'document', title: '', description: '', url: '', style: { ... }},
+				]}
+			},
+			'da': { ... }
+		}
+	}
 }
+
 ```
