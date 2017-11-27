@@ -3,8 +3,8 @@ var Schema = mongoose.Schema
 require('mongoose-uuid2')(mongoose)
 
 var HelpitemSchema = new Schema({
-	app_id: Number,
-	help_id: Number,
+	app_id: String,
+	help_id: String,
 	locale_content: {
 		en: {
 			help_title: String,
