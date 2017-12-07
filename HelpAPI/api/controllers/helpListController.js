@@ -6,11 +6,13 @@ exports.list_all_helpitems = function(req, res) {
 		if (err)
 			res.send(err)
 		res.json(helpitem)
+		//console.log(helpitem) // Leo you really love walking blind
 	})
 }
 
 exports.create_a_helpitem = function(req, res) {
 	var new_helpitem = new Helpitem(req.body)
+	//console.log(new_helpitem) // Leo you really love walking blind
 	new_helpitem.save(function(err, helpitem) {
 		if (err)
 			res.send(err)
