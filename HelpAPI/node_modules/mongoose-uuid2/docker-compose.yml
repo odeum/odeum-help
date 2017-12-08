@@ -1,7 +1,0 @@
-db:
-  image: mongo:latest
-  expose:
-    - "27017"
-  ports:
-    - "27017:27017"
-  command: mongod --smallfiles
