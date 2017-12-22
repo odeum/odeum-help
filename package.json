@@ -1,36 +1,21 @@
 {
-	"name": "odeum-help",
-	"version": "0.1.0",
-	"private": false,
-	"description": "Test boilerplate for ODEUM Help Server",
-	"author": "Christian Broberg",
-	"license": "MIT",
-	"keywords": [
-		"react",
-		"odeum",
-		"odeum-code",
-		"odeum-code-lite",
-		"styled-components",
-		"help",
-		"framework",
-		"javascript"
-	],
-	"dependencies": {
-		"odeum-ui": "^0.1.24",
-		"polished": "^1.8.1",
-		"prop-types": "^15.6.0",
-		"react": "^16.0.0",
-		"react-dom": "^16.0.0",
-		"react-router-dom": "^4.2.2",
-		"react-scripts": "1.0.14",
-		"styled-components": "^2.2.2",
-		"svgr": "^0.4.0",
-		"uuid": "^3.1.0"
-	},
-	"scripts": {
-		"start": "react-scripts start",
-		"build": "react-scripts build",
-		"test": "react-scripts test --env=jsdom",
-		"eject": "react-scripts eject"
-	}
+  "name": "helpapi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^1.12.1"
+  },
+  "dependencies": {
+    "express": "^4.16.2",
+    "mongoose": "4.7.2",
+    "mongoose-uuid": "0.0.2",
+    "mongoose-uuid2": "^2.0.1"
+  }
 }
