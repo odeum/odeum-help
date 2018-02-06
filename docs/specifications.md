@@ -1,12 +1,17 @@
 # ODEUM Help
 
 * Global Help Index for all connected apps
-* Should long term have its own ticketing system (issue tracker)
-* Ability to integrate with Slack through ODEUM Slack Service
+* Should long term have its own ticketing system (issue tracker) (Future)
+* Ability to integrate with Slack through ODEUM Slack Service (Future)
 
 
 ## ODEUM Help
 ODEUM Code will require a help client and a help server. The help server service will be integrated through a client React Wrapper component in ODEUM Code (Web App framework) and later in ODEUM Code Native (Mobile App framework). 
+
+
+## ODEUM Help Server
+ODEUM Code Apps has a demand for a service (server) that can be integrated in our open source ODEUM Code App framework. 
+This server is a service that exhibits help texts and help content for Web Apps who has joined the service. A context sensitive help service. 
 
 The server is a service (API) that exhibits and offer inline help and content for ODEUM Code Web Apps connected to this service. A context sensitive help displayed through a pop-up overlay by activating the "Help" button in the lower right corner of the footer in an  ODEUM Code Web App. 
 
@@ -15,10 +20,10 @@ A Web App developed with ODEUM Code can be any arbitrary web app written in Reac
 
 #### Following technologies will be used to solve the problem:
 
-* A React wrapper component or JavaScript function that connects the visual workspace with an index in the server. This component will use native React state (Will be implemented in Redux later if needed)
-* A NodeJS server service that describes and exhibits an API and CRUD endpoints to access context sensitive help from a MongoDB database. This service is written in NodeJS and driven by either Express or Apache web server. 
-* A MongoDB database containing a localized index of web apps connected to the help and an index of the help entries created for the web app seeking help.
-* A simple form based ODEUM Code Web App applied to create help content in the database for a specific web app. 
+* A React wrapper component which couples the visual workspace with an index from a server. (ReactJS)
+* A server API that exhibits indexed help items. (PHP)
+* A database containing an index of apps that have their own indexes with help items (MySQL)
+* A simple ODEUM React Form to create and edit help items for an app. Here you create the content that is going to be shown in the context sensitive help in the ODEUM Code Web App. (ReactJS)
 
 ## API
 
